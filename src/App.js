@@ -1,6 +1,6 @@
 import "./App.css";
-import React from "react";
 import { useState, useEffect } from "react";
+import Photo from "./components/Photo";
 
 function App() {
   const [data, setData] = useState([]);
@@ -11,6 +11,7 @@ function App() {
         "https://jsonplaceholder.typicode.com/photos"
       );
       const photos = await response.json();
+      console.log(photos);
       setData(photos);
     };
 
@@ -20,15 +21,7 @@ function App() {
   return (
     <div className="App">
       {data.map((item) => {
-        return (
-          <div className="card">
-            <img
-              className="card__image"
-              alt="placeholder"
-              src={item.thumbnailUrl}
-            />
-          </div>
-        );
+        return <Photo thumbnailUrl={item.thumbnailUrl} key={item.id} />;
       })}
     </div>
   );
