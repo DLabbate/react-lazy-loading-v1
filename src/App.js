@@ -10,8 +10,8 @@ function App() {
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/photos"
       );
-      const movies = await response.json();
-      setData(movies);
+      const photos = await response.json();
+      setData(photos);
     };
 
     getData();
