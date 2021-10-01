@@ -7,12 +7,10 @@ function App() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/photos"
-      );
+      const response = await fetch("https://picsum.photos/v2/list");
       const photos = await response.json();
       console.log(photos);
-      setData(photos);
+      setData(photos.slice(0, 100));
     };
 
     getData();
@@ -21,7 +19,7 @@ function App() {
   return (
     <div className="App">
       {data.map((item) => {
-        return <Photo thumbnailUrl={item.thumbnailUrl} key={item.id} />;
+        return <Photo url={item.download_url} key={item.id} />;
       })}
     </div>
   );
