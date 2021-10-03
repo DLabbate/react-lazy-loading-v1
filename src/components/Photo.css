@@ -1,0 +1,40 @@
+@keyframes pulse {
+  0% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.25;
+  }
+}
+
+.photo-container {
+  margin: 15px;
+  width: 600px;
+  height: 600px;
+  position: relative;
+}
+
+.photo {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skeleton {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+  animation: pulse 2s infinite;
+  z-index: 99;
+}

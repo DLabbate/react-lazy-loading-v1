@@ -1,15 +1,13 @@
 import "./App.css";
-import React from "react";
 import { useState, useEffect } from "react";
+import Photo from "./components/Photo";
 
 function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/photos"
-      );
+      const response = await fetch("https://picsum.photos/v2/list");
       const photos = await response.json();
       setData(photos);
     };
@@ -20,15 +18,7 @@ function App() {
   return (
     <div className="App">
       {data.map((item) => {
-        return (
-          <div className="card">
-            <img
-              className="card__image"
-              alt="placeholder"
-              src={item.thumbnailUrl}
-            />
-          </div>
-        );
+        return <Photo url={item.download_url} key={item.id} />;
       })}
     </div>
   );
