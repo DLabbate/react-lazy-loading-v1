@@ -9,8 +9,7 @@ function App() {
     const getData = async () => {
       const response = await fetch("https://picsum.photos/v2/list");
       const photos = await response.json();
-      console.log(photos);
-      setData(photos.slice(0, 100));
+      setData(photos);
     };
 
     getData();
